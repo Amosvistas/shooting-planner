@@ -20,3 +20,16 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+# project ignores
+.alma-snapshots/
+node_modules/
+.next/
+dist/
+.env*
+.DS_Store
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

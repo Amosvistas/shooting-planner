@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/*
+  视觉方向：主流浅色（低对比、干净、接近 Gemini 的克制风格）
+  - 只保留浅色主题（不跟随系统暗色）
+  - 低饱和度强调色，用于按钮/链接
+*/
+
+:root {
+  /* palette */
+  --paper: #ffffff;
+  --paper-2: #f7f7f8;
+  --ink: #111827; /* slate-900 */
+  --ink-2: rgba(17, 24, 39, 0.72);
+  --ink-3: rgba(17, 24, 39, 0.52);
+  --line: rgba(17, 24, 39, 0.10);
+  --shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+
+  /* low-contrast accent (soft indigo) */
+  --accent: #4f46e5;
+
+  /* typography */
+  --radius-xl: 18px;
+  --radius-2xl: 22px;
+
+  /* mainstream system font stack (Chinese-friendly) */
+  --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+  --font-display-family: var(--font-body);
+
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+
+  background: var(--paper-2);
+}
+
+/* Utilities used in JSX */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 24, 39, 0.22) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(17, 24, 39, 0.18);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 24, 39, 0.28);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* selection */
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
