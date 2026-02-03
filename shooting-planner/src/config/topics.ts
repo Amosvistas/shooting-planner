@@ -1,5 +1,5 @@
 /**
- * Topics examples (editable)
+ * Topic examples (editable)
  * - SettingsPanel JSON editor writes to localStorage
  * - TopicChips reads from localStorage with fallback
  */
