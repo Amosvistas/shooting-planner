@@ -1,5 +1,6 @@
 import type { ExtendedShootingPlan } from '@/types/single-plan';
 import type { ProjectPlan } from '@/types/project-plan';
+import { buildProjectTitle } from '@/lib/plan-title';
 
 export type SinglePlanRecord = {
   kind: 'single';
@@ -56,7 +57,15 @@ export function parseHistory(raw: string | null): PlanRecord[] {
 
     // 已经是 PlanRecord
     if (data.length > 0 && data[0] && typeof data[0] === 'object' && 'kind' in data[0]) {
-      return data as PlanRecord[];
+      return (data as PlanRecord[]).map((record) => {
+        if (record.kind === 'project') {
+          const title = record.title?.trim();
+          if (!title) {
+            return { ...record, title: buildProjectTitle(record.data.client) };
+          }
+        }
+        return record;
+      });
     }
 
     // 旧版：ExtendedShootingPlan[]

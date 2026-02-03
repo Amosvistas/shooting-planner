@@ -19,7 +19,7 @@ export interface ShootingPlan {
   }[];
 }
 
-type ExportImages = Record<number, string>; // sceneIndex -> dataURL
+type ExportImages = Record<number, string>; // single: sceneIndex -> dataURL; project: lookIndex * 100 + sceneIndex
 
 const SLIDE = {
   w: 13.33,
